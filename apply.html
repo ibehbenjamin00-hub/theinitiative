@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Portal | THE INITIATIVE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0c10; color: #f0f0f0; font-family: 'Inter', sans-serif; }
+        header { position: fixed; top: 0; width: 100%; background: rgba(11,12,16,0.85); backdrop-filter: blur(10px); display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; border-bottom: 1px solid rgba(212,175,55,0.2); }
+        .brand { font-family: 'Cinzel', serif; font-size: 1.3rem; letter-spacing: 4px; color: #d4af37; font-weight: 700; }
+        nav a { color: #cccccc; text-decoration: none; margin-left: 20px; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; }
+        
+        .form-container { max-width: 680px; margin: 120px auto 60px; padding: 40px; background: rgba(255,255,255,0.02); border: 1px solid rgba(212,175,55,0.2); border-radius: 8px; backdrop-filter: blur(12px); }
+        h2 { font-family: 'Cinzel', serif; color: #d4af37; margin-bottom: 25px; letter-spacing: 2px; font-size: 1.5rem; text-align: center; }
+        .section-title { color: #ffffff; font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; margin: 25px 0 15px; font-weight: 600; letter-spacing: 1px; }
+        
+        .field-group { margin-bottom: 18px; display: flex; flex-direction: column; }
+        label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-bottom: 6px; }
+        input, select, textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 12px; border-radius: 4px; font-family: 'Inter', sans-serif; font-size: 0.95rem; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #d4af37; }
+        select option { background: #0b0c10; color: #fff; }
+        
+        .char-counter { font-size: 0.75rem; color: #888; text-align: right; margin-top: 4px; }
+        .submit-btn { width: 100%; margin-top: 30px; padding: 15px; border: 1px solid #d4af37; background: #d4af37; color: #0b0c10; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
+        .submit-btn:hover { background: transparent; color: #d4af37; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">THE INITIATIVE</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="apply.html" style="color: #d4af37;">Apply</a>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <h2>MEMBERSHIP APPLICATION</h2>
+        <form id="applicationForm">
+            
+            <div class="section-title">SECTION A: VERIFICATION</div>
+            <div class="field-group">
+                <label>Selfie / Portrait Photo Upload (PNG/JPEG, Max 5MB)</label>
+                <input type="file" accept="image/png, image/jpeg" required>
+            </div>
+
+            <div class="section-title">SECTION B: PERSONAL INFORMATION</div>
+            <div class="field-group">
+                <label>First Name</label>
+                <input type="text" id="firstName" required>
+            </div>
+            <div class="field-group">
+                <label>Surname</label>
+                <input type="text" id="surname" required>
+            </div>
+            <div class="field-group">
+                <label>Age</label>
+                <input type="number" min="18" required>
+            </div>
+            <div class="field-group">
+                <label>Occupation</label>
+                <input type="text" required>
+            </div>
+            <div class="field-group">
+                <label>Marital Status</label>
+                <select required>
+                    <option value="" disabled selected>Select status</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divorced">Divorced</option>
+                    <option value="Widowed">Widowed</option>
+                </select>
+            </div>
+            <div class="field-group">
+                <label>Email Address</label>
+                <input type="email" required>
+            </div>
+            <div class="field-group">
+                <label>Phone Number (With Country Code)</label>
+                <input type="tel" placeholder="+1234567890" required>
+            </div>
+
+            <div class="section-title">SECTION C: STATEMENT OF INTENT</div>
+            <div class="field-group">
+                <label>Reasons why you want to sign up with THE INITIATIVE</label>
+                <textarea id="intentReason" rows="5" maxlength="1000" required></textarea>
+                <div class="char-counter"><span id="charCount">0</span> / 1000</div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        // Character counter
+        const textarea = document.getElementById('intentReason');
+        const charCount = document.getElementById('charCount');
+        textarea.addEventListener('input', () => {
+            charCount.textContent = textarea.value.length;
+        });
+
+        // Store name and redirect
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const fname = document.getElementById('firstName').value.trim();
+            const sname = document.getElementById('surname').value.trim();
+            const fullName = `${fname} ${sname}`;
+            
+            // Redirect with query param
+            window.location.href = `confirmation.html?name=${encodeURIComponent(fullName)}`;
+        });
+    </script>
+</body>
+</html>
