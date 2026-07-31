@@ -3,109 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE INITIATIVE | Executive Hub</title>
+    <title>THE INITIATIVE | Official Portal</title>
+    
+    <!-- Open Graph Meta Tags (Sets the link preview image to the lobby logo) -->
+    <meta property="og:title" content="THE INITIATIVE | Corporate Portal">
+    <meta property="og:description" content="Empowering future leaders through strategic sponsorship and developmental challenges.">
+    <meta property="og:image" content="https://theinitiative01.com/images/logo-lobby.jpg">
+    <meta property="og:url" content="https://theinitiative01.com">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            background-color: #0b0c10;
-            color: #f0f0f0;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-        }
-        /* Header / Nav */
-        header {
-            position: fixed;
-            top: 0; width: 100%;
-            background: rgba(11, 12, 16, 0.85);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-            z-index: 1000;
-        }
-        .brand {
-            font-family: 'Cinzel', serif;
-            font-size: 1.3rem;
-            letter-spacing: 4px;
-            color: #d4af37; /* Brushed Gold */
-            font-weight: 700;
-        }
-        nav a {
-            color: #cccccc;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.85rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
-        nav a:hover, nav a.active { color: #d4af37; }
+        body { background-color: #0b0c10; color: #f0f0f0; font-family: 'Inter', sans-serif; line-height: 1.6; }
+        header { position: fixed; top: 0; width: 100%; background: rgba(11, 12, 16, 0.9); backdrop-filter: blur(10px); display: flex; justify-content: space-between; align-items: center; padding: 20px 8%; border-bottom: 1px solid rgba(212, 175, 55, 0.2); z-index: 1000; }
+        .brand { font-family: 'Cinzel', serif; font-size: 1.3rem; letter-spacing: 4px; color: #d4af37; font-weight: 700; }
+        nav a { color: #cccccc; text-decoration: none; margin-left: 20px; font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase; }
+        nav a.active { color: #d4af37; font-weight: 600; }
 
-        /* Hero Container */
-        .container {
-            max-width: 900px;
-            margin: 120px auto 60px;
-            padding: 0 20px;
-            text-align: center;
-        }
-        .hero-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
-            color: #ffffff;
-            margin-bottom: 24px;
-            letter-spacing: 1px;
-            line-height: 1.4;
-        }
-        .cta-btn {
-            display: inline-block;
-            margin: 25px 0 50px;
-            padding: 14px 32px;
-            border: 1px solid #d4af37;
-            color: #d4af37;
-            text-decoration: none;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            background: rgba(212, 175, 55, 0.05);
-            transition: all 0.3s ease;
-        }
-        .cta-btn:hover {
-            background: #d4af37;
-            color: #0b0c10;
-        }
+        .hero { margin-top: 100px; padding: 60px 8%; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .hero-img { width: 100%; max-width: 800px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.3); margin-bottom: 40px; }
+        .intro-box { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(212, 175, 55, 0.2); padding: 40px; border-radius: 8px; max-width: 800px; margin-bottom: 40px; text-align: left; }
+        .intro-box h1 { font-family: 'Cinzel', serif; color: #d4af37; margin-bottom: 20px; font-size: 1.8rem; letter-spacing: 2px; text-align: center; }
+        .intro-box p { color: #d0d0d0; font-size: 1rem; margin-bottom: 16px; }
 
-        /* Vertical Gallery Layout */
-        .gallery-section {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin-top: 40px;
-        }
-        .series-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 8px;
-            padding: 16px;
-            backdrop-filter: blur(8px);
-            text-align: left;
-        }
-        .series-card img {
-            width: 100%;
-            height: 380px;
-            object-fit: cover;
-            border-radius: 4px;
-            margin-bottom: 12px;
-        }
-        .series-title {
-            font-family: 'Cinzel', serif;
-            color: #d4af37;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
+        .cta-btn { display: inline-block; background: #d4af37; color: #0b0c10; padding: 15px 35px; text-decoration: none; font-weight: 600; font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; transition: 0.3s; }
+        .cta-btn:hover { background: #fff; color: #0b0c10; }
+        
+        .gallery-section { padding: 40px 8%; max-width: 800px; margin: 0 auto; }
+        .gallery-title { font-family: 'Cinzel', serif; color: #ffffff; text-align: center; font-size: 1.4rem; margin-bottom: 30px; letter-spacing: 2px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
+        .media-card { margin-bottom: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 6px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .media-card img { width: 100%; height: auto; display: block; }
+        .media-card h3 { padding: 15px; font-family: 'Cinzel', serif; font-size: 1rem; color: #d4af37; text-align: center; }
     </style>
+
+    <!-- Cloudflare Free Web Analytics (Tracks visits when people open your site) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "YOUR_CLOUDFLARE_TOKEN"}'></script>
 </head>
 <body>
 
@@ -113,41 +46,41 @@
         <div class="brand">THE INITIATIVE</div>
         <nav>
             <a href="index.html" class="active">Home</a>
-            <a href="index.html#gallery">Quick Review</a>
             <a href="apply.html">Apply</a>
         </nav>
     </header>
 
-    <div class="container">
-        <h1 class="hero-title">
-            Welcome to THE INITIATIVE, where premium challenges are enacted to test your discipline and help you produce massive financial and psychological results.
-        </h1>
+    <section class="hero">
+        <!-- Display corporate logo image on the main page -->
+        <img src="logo-lobby.jpg" alt="THE INITIATIVE Corporate Lobby" class="hero-img">
 
-        <a href="apply.html" class="cta-btn">Proceed to Application</a>
-
-        <div id="gallery" class="gallery-section">
-            <div class="series-card">
-                <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1200" alt="Sophisticated Villa">
-                <div class="series-title">Series 1: Sophisticated Villas</div>
-            </div>
-            <div class="series-card">
-                <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1200" alt="Beautiful Mansion">
-                <div class="series-title">Series 2: Executive Mansions</div>
-            </div>
-            <div class="series-card">
-                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1200" alt="Water Resort">
-                <div class="series-title">Series 3: Water Resorts & Parks</div>
-            </div>
-            <div class="series-card">
-                <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=1200" alt="Woods House">
-                <div class="series-title">Series 4: Nature-Inspired Cool Woods Houses</div>
-            </div>
-            <div class="series-card">
-                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200" alt="Mountain View">
-                <div class="series-title">Series 5: Countryside & Mountain Views</div>
-            </div>
+        <div class="intro-box">
+            <h1>Welcome to THE INITIATIVE</h1>
+            <p>Welcome to the official portal of <strong>THE INITIATIVE</strong>. Our platform was established as a dedicated program to empower motivated individuals who possess the drive and vision to build sustainable careers or ventures, but lack the financial backing required to launch them.</p>
+            <p>Through our global network of corporate sponsors, high-net-worth mentors, and partner firms, we provide direct financial backing and resources to qualified candidates.</p>
+            <p>To ensure alignment and measure readiness, participants take part in structured challenges designed to test resilience, strategic decision-making, discipline, and core capabilities.</p>
+            <p style="text-align: center; margin-top: 25px;">
+                <a href="apply.html" class="cta-btn">Proceed to Application</a>
+            </p>
         </div>
-    </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2 class="gallery-title">Program Locations & Facilities</h2>
+        
+        <div class="media-card">
+            <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="Executive Villa">
+            <h3>Series 1: Executive Villas</h3>
+        </div>
+        <div class="media-card">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Private Estate">
+            <h3>Series 2: Conference Estates</h3>
+        </div>
+        <div class="media-card">
+            <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Waterfront Hub">
+            <h3>Series 3: Waterfront Hubs</h3>
+        </div>
+    </section>
 
 </body>
 </html>
